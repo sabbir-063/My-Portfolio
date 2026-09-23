@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import type { Service } from "./serviceData";
 
 export default function ServiceCard({
@@ -30,7 +31,7 @@ export default function ServiceCard({
         {/* Header */}
         <div className="flex items-center gap-4">
           <div className={`w-11 h-11 rounded-xl glass-panel ${borderColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-            <span className={`material-symbols-outlined text-[22px] ${accentColor}`}>{icon}</span>
+            <AppIcon name={icon} className={`text-[22px] ${accentColor}`} />
           </div>
           <div>
             <p className={`text-[10px] font-bold font-label uppercase tracking-widest ${accentColor} mb-0.5`}>
@@ -57,7 +58,7 @@ export default function ServiceCard({
           </p>
           {deliverables.map((item) => (
             <div key={item} className="flex items-center gap-2">
-              <span className={`material-symbols-outlined text-[14px] ${accentColor} mt-0.5 shrink-0`}>check_circle</span>
+              <AppIcon name="check_circle" className={`text-[14px] ${accentColor} mt-0.5 shrink-0`} />
               <span className="text-xs text-on-surface-variant font-body leading-snug">{item}</span>
             </div>
           ))}

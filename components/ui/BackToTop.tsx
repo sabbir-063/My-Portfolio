@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AppIcon from "./AppIcon";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -43,7 +44,7 @@ export default function BackToTop() {
             aria-label="Back to top"
             className="relative w-11 h-11 rounded-full glass-panel flex items-center justify-center text-primary shadow-[0_4px_24px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] hover:border-primary/30 transition-[border,box-shadow] duration-300"
           >
-            <span className="material-symbols-outlined text-[20px]">arrow_upward</span>
+            <AppIcon name="arrow_upward" className="text-[20px]" />
 
             {/* Tooltip — absolute so it never shifts the button */}
             <AnimatePresence>

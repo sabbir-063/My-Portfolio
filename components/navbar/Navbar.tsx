@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import AppIcon from "@/components/ui/AppIcon";
 import NavLogo from "./NavLogo";
 import { navLinks, contactLink, type NavLink } from "./navLinks";
 import { useActiveSection } from "./useActiveSection";
@@ -92,9 +93,7 @@ export default function Navbar({ onThemeToggle, isDark }: NavbarProps) {
                 onClick={(e) => handleClick(e, link)}
                 className={linkClass(link)}
               >
-                <span className="material-symbols-outlined text-[18px] group-hover:text-glow leading-none">
-                  {link.icon}
-                </span>
+                <AppIcon name={link.icon} className="text-[18px] shrink-0 group-hover:text-glow" />
                 <span className="hidden lg:inline">{link.label}</span>
               </a>
             ))}
@@ -109,9 +108,7 @@ export default function Navbar({ onThemeToggle, isDark }: NavbarProps) {
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
-              <span className="material-symbols-outlined text-[20px]">
-                {mobileOpen ? "close" : "menu"}
-              </span>
+              <AppIcon name={mobileOpen ? "close" : "menu"} className="text-[20px]" />
             </button>
           </div>
         </nav>
@@ -138,9 +135,7 @@ export default function Navbar({ onThemeToggle, isDark }: NavbarProps) {
                       : "text-on-surface-variant hover:bg-black/[0.06] dark:hover:bg-white/5 hover:text-primary"
                   }`}
                 >
-                  <span className="material-symbols-outlined text-[18px]">
-                    {link.icon}
-                  </span>
+                  <AppIcon name={link.icon} className="text-[18px] shrink-0" />
                   {link.label}
                 </a>
               ))}

@@ -1,3 +1,5 @@
+import type { AppIconName } from "@/components/ui/AppIcon";
+
 export interface Skill {
   name: string;
   level: number; // 0–100
@@ -5,7 +7,7 @@ export interface Skill {
 
 export interface SkillGroup {
   category: string;
-  icon: string;
+  icon: AppIconName;
   color: string;
   skills: Skill[];
 }

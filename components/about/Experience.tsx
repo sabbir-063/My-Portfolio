@@ -1,13 +1,14 @@
 "use client";
 
 import { ScrollReveal, TagPill } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import { experiences } from "./aboutData";
 
 export default function ExperienceSection() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-5">
-        <span className="material-symbols-outlined text-primary text-[18px]">work</span>
+        <AppIcon name="work" className="text-primary text-[18px]" />
         <h3 className="text-xs font-bold font-label uppercase tracking-widest text-primary">
           Experience
         </h3>

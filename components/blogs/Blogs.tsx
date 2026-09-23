@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import BlogCard from "./BlogCard";
 import { AnimatedBlob, SectionHeading } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import Link from "next/link";
 import type { BlogMeta } from "@/lib/blog";
 
@@ -44,13 +45,13 @@ export default function Blogs({ posts, total }: BlogsProps) {
             className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 glass-panel text-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-black/[0.06] dark:hover:bg-white/5 transition-all font-headline"
           >
             View All
-            <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+            <AppIcon name="arrow_forward" className="text-[14px]" />
           </Link>
         </div>
 
         {posts.length === 0 ? (
           <div className="glass-panel rounded-2xl p-12 text-center">
-            <span className="material-symbols-outlined text-4xl text-on-surface-variant/30">edit_note</span>
+            <AppIcon name="edit_note" className="mx-auto text-4xl text-on-surface-variant/30" />
             <p className="text-on-surface-variant text-sm mt-3 font-body">First post coming soon.</p>
           </div>
         ) : (

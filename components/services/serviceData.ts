@@ -1,6 +1,8 @@
+import type { AppIconName } from "@/components/ui/AppIcon";
+
 export interface Service {
   number: string;
-  icon: string;
+  icon: AppIconName;
   title: string;
   description: string;
   deliverables: string[];

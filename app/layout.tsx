@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
-import Script from "next/script";
 import "@/styles/globals.css";
 import NavWrapper from "@/components/navbar/NavWrapper";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -94,27 +93,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* Load the icon font without blocking first paint (improves LCP).
-            media="print" makes it non-render-blocking; the script below
-            promotes it to all screens once parsed. */}
-        <link
-          id="icon-font"
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-          media="print"
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-          />
-        </noscript>
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();` }} />
       </head>
       <body className="bg-background text-on-surface selection:bg-primary/30 min-h-screen overflow-x-hidden soft-grid antialiased" suppressHydrationWarning>
@@ -177,9 +155,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <Script id="icon-font-swap" strategy="afterInteractive">
-          {`(function(){var l=document.getElementById('icon-font');if(l){if(l.sheet){l.media='all'}else{l.addEventListener('load',function(){l.media='all'})}}})();`}
-        </Script>
         <SmoothScroll>
           <MouseEffect />
           <NavWrapper />

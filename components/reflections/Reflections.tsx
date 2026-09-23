@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { ScrollReveal, SectionHeading } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import { reflections } from "./reflectionData";
 import ReflectionCard from "./ReflectionCard";
 
@@ -145,9 +146,7 @@ export default function Reflections() {
               aria-label="Previous reflection"
               className="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant/60 hover:text-on-surface hover:bg-on-surface/[0.05] transition-colors duration-300"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                arrow_back
-              </span>
+              <AppIcon name="arrow_back" className="text-[18px]" />
             </button>
             <div
               className="font-mono text-[11px] tracking-[0.3em] text-on-surface-variant/70 tabular-nums"
@@ -164,9 +163,7 @@ export default function Reflections() {
               aria-label="Next reflection"
               className="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant/60 hover:text-on-surface hover:bg-on-surface/[0.05] transition-colors duration-300"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                arrow_forward
-              </span>
+              <AppIcon name="arrow_forward" className="text-[18px]" />
             </button>
           </div>
         </motion.div>

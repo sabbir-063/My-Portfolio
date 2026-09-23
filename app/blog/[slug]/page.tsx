@@ -6,6 +6,7 @@ import { getAllPostsMeta, getPost } from "@/lib/blog";
 import { categories } from "@/lib/blog/categories";
 import MarkdownContent from "@/lib/blog/render";
 import { TagPill, AnimatedBlob } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import Comments from "@/components/blogs/Comments";
 
 const SITE_URL = "https://sabbirmusfique.com.bd";
@@ -105,7 +106,7 @@ export default async function BlogPostPage({
           href="/blog"
           className="inline-flex items-center gap-1.5 text-xs text-on-surface-variant hover:text-on-surface font-label uppercase tracking-[0.18em] mb-12 transition-colors"
         >
-          <span className="material-symbols-outlined text-[14px]">arrow_back</span>
+          <AppIcon name="arrow_back" className="text-[14px]" />
           All Posts
         </Link>
 
@@ -127,12 +128,12 @@ export default async function BlogPostPage({
 
           <div className="flex items-center gap-3 mt-7 text-[11px] text-on-surface-variant font-label">
             <span className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[13px]">calendar_today</span>
+              <AppIcon name="calendar_today" className="text-[13px]" />
               {formatLongDate(post.date)}
             </span>
             <span className="w-1 h-1 rounded-full bg-on-surface-variant/30" />
             <span className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[13px]">schedule</span>
+              <AppIcon name="schedule" className="text-[13px]" />
               {post.readMinutes} min read
             </span>
           </div>
@@ -173,7 +174,7 @@ export default async function BlogPostPage({
             href="/blog"
             className="inline-flex items-center gap-1.5 text-xs text-on-surface-variant hover:text-on-surface font-label uppercase tracking-[0.18em] transition-colors"
           >
-            <span className="material-symbols-outlined text-[14px]">arrow_back</span>
+            <AppIcon name="arrow_back" className="text-[14px]" />
             All Posts
           </Link>
           <Link
@@ -181,7 +182,7 @@ export default async function BlogPostPage({
             className={`inline-flex items-center gap-1.5 text-xs font-bold font-headline ${cat.accent} hover:gap-3 transition-all`}
           >
             Get in touch
-            <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            <AppIcon name="arrow_forward" className="text-[15px]" />
           </Link>
         </div>
       </article>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import AppIcon from "@/components/ui/AppIcon";
 
 type Reply = {
   id: number;
@@ -86,9 +87,7 @@ export default function Comments({ slug }: { slug: string }) {
       <div className="mt-10 flex flex-col gap-6">
         {loading ? (
           <div className="flex justify-center py-8">
-            <span className="material-symbols-outlined animate-spin text-on-surface-variant/40 text-2xl">
-              progress_activity
-            </span>
+            <AppIcon name="progress_activity" className="animate-spin text-on-surface-variant/40 text-2xl" />
           </div>
         ) : loadError ? (
           <p className="text-on-surface-variant text-sm font-body">{loadError}</p>
@@ -139,7 +138,7 @@ export default function Comments({ slug }: { slug: string }) {
                     onClick={() => setActiveReply(c.id)}
                     className="inline-flex items-center gap-1.5 text-[11px] font-bold font-label uppercase tracking-wider text-on-surface-variant hover:text-tertiary transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[14px]">reply</span>
+                    <AppIcon name="reply" className="text-[14px]" />
                     Reply
                   </button>
                 )}
@@ -292,7 +291,7 @@ function CommentForm({
           className="inline-flex items-center gap-1.5 rounded-full bg-tertiary/15 border border-tertiary/30 px-4 py-2 text-xs font-bold font-headline text-tertiary hover:bg-tertiary/25 transition-colors disabled:opacity-50"
         >
           {submitting && (
-            <span className="material-symbols-outlined animate-spin text-[14px]">progress_activity</span>
+            <AppIcon name="progress_activity" className="animate-spin text-[14px]" />
           )}
           {parentId ? "Post reply" : "Post comment"}
         </button>

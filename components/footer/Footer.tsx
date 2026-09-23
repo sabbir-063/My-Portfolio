@@ -1,4 +1,5 @@
 import BrandIcon from "@/components/ui/BrandIcon";
+import AppIcon from "@/components/ui/AppIcon";
 import { ScrollReveal } from "@/components/ui";
 import { navLinks, contactLink } from "@/components/navbar/navLinks";
 import FooterQuote from "./FooterQuote";
@@ -84,15 +85,15 @@ export default function Footer() {
                   href="mailto:sabbir.musfique01@gmail.com"
                   className="flex items-center gap-2 text-xs text-on-surface-variant hover:text-on-surface transition-colors font-body"
                 >
-                  <span className="material-symbols-outlined text-[14px] text-primary">mail</span>
+                  <AppIcon name="mail" className="text-[14px] text-primary shrink-0" />
                   sabbir.musfique01@gmail.com
                 </a>
                 <div className="flex items-center gap-2 text-xs text-on-surface-variant font-body">
-                  <span className="material-symbols-outlined text-[14px] text-primary">location_on</span>
+                  <AppIcon name="location_on" className="text-[14px] text-primary shrink-0" />
                   Dhaka, Bangladesh
                 </div>
                 <div className="flex items-center gap-2 text-xs text-on-surface-variant font-body">
-                  <span className="material-symbols-outlined text-[14px] text-primary">work</span>
+                  <AppIcon name="work" className="text-[14px] text-primary shrink-0" />
                   Be Data Solutions · Software Engineer
                 </div>
               </div>

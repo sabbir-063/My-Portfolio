@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AppIcon from "@/components/ui/AppIcon";
 
 export default function ScrollBridge() {
   const [visible, setVisible] = useState(true);
@@ -31,9 +32,7 @@ export default function ScrollBridge() {
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             className="w-8 h-8 rounded-full glass-panel flex items-center justify-center"
           >
-            <span className="material-symbols-outlined text-primary text-[18px]">
-              keyboard_arrow_down
-            </span>
+            <AppIcon name="keyboard_arrow_down" className="text-primary text-[18px]" />
           </motion.div>
         </motion.div>
       )}

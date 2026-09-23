@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Typewriter from "@/components/ui/Typewriter";
+import AppIcon from "@/components/ui/AppIcon";
 
 // Transform-only entrance: elements stay fully opaque so they paint in the
 // server HTML (good LCP) and still slide up once hydration runs.
@@ -32,17 +33,13 @@ export default function HeroContent() {
       >
         {/* Company */}
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel text-[10px] font-label tracking-widest uppercase text-on-surface-variant">
-          <span className="material-symbols-outlined text-[13px] text-secondary">
-            business
-          </span>
+          <AppIcon name="business" className="text-[13px] text-secondary" />
           Be Data Solutions
         </span>
 
         {/* Location */}
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel text-[10px] font-label tracking-widest uppercase text-on-surface-variant">
-          <span className="material-symbols-outlined text-[13px] text-secondary">
-            location_on
-          </span>
+          <AppIcon name="location_on" className="text-[13px] text-secondary" />
           Dhaka, BD
         </span>
       </motion.div>
@@ -140,27 +137,21 @@ export default function HeroContent() {
           rel="noopener noreferrer"
           className="relative px-6 py-2.5 rounded-xl font-semibold font-headline text-sm flex items-center gap-2 text-on-primary overflow-hidden transition-all duration-300 hover:scale-105 backdrop-blur-xl bg-primary/80 border border-primary/40 shadow-[0_0_20px_rgb(var(--color-primary)/0.3),inset_0_1px_0_rgba(255,255,255,0.3)] dark:shadow-[0_0_30px_rgba(199,185,245,0.35),inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary/95 hover:shadow-[0_0_35px_rgb(var(--color-primary)/0.45),inset_0_1px_0_rgba(255,255,255,0.35)] dark:hover:shadow-[0_0_55px_rgba(199,185,245,0.6),inset_0_1px_0_rgba(255,255,255,0.2)]"
         >
-          <span className="material-symbols-outlined text-[17px]">
-            description
-          </span>
+          <AppIcon name="description" className="text-[17px]" />
           Resume
         </a>
         <a
           href="#Contact"
           className="px-6 py-2.5 rounded-xl font-semibold font-headline text-sm text-on-surface dark:text-white transition-all duration-300 backdrop-blur-xl bg-black/[0.05] dark:bg-white/[0.06] border border-black/[0.1] dark:border-white/[0.12] shadow-[0_4px_24px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.08)] hover:bg-black/[0.08] dark:hover:bg-white/[0.11] hover:border-black/[0.15] dark:hover:border-white/[0.22] flex items-center gap-2"
         >
-          <span className="material-symbols-outlined text-[17px] text-secondary">
-            handshake
-          </span>
+          <AppIcon name="handshake" className="text-[17px] text-secondary" />
           Hire Me
         </a>
         <a
           href="#Projects"
           className="px-6 py-2.5 rounded-xl font-semibold font-headline text-sm text-on-surface-variant transition-all duration-300 backdrop-blur-xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.07] dark:border-white/[0.08] hover:text-on-surface hover:bg-black/[0.06] dark:hover:bg-white/[0.07] flex items-center gap-2"
         >
-          <span className="material-symbols-outlined text-[17px]">
-            folder_open
-          </span>
+          <AppIcon name="folder_open" className="text-[17px]" />
           See Work
         </a>
       </motion.div>

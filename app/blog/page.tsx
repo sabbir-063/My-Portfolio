@@ -1,5 +1,6 @@
 import { getAllPostsMeta } from "@/lib/blog";
 import BlogListing from "@/components/blogs/BlogListing";
+import AppIcon from "@/components/ui/AppIcon";
 
 export const metadata = {
   title: "Knowledge hub",
@@ -42,7 +43,7 @@ export default function BlogIndexPage() {
 
         {posts.length === 0 ? (
           <div className="glass-panel rounded-2xl p-16 text-center">
-            <span className="material-symbols-outlined text-5xl text-on-surface-variant/30">edit_note</span>
+            <AppIcon name="edit_note" className="mx-auto text-5xl text-on-surface-variant/30" />
             <p className="text-on-surface-variant text-sm mt-4 font-body">First post coming soon.</p>
           </div>
         ) : (

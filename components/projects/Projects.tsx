@@ -5,6 +5,7 @@ import { gsap } from "@/lib/gsap";
 import { projects, MAX_HOMEPAGE_PROJECTS } from "./projectData";
 import ProjectCard from "./ProjectCard";
 import { AnimatedBlob, SectionHeading } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import Link from "next/link";
 
 export default function Projects() {
@@ -41,7 +42,7 @@ export default function Projects() {
             className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 glass-panel text-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-black/[0.06] dark:hover:bg-white/5 transition-all font-headline"
           >
             View All
-            <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+            <AppIcon name="open_in_new" className="text-[14px]" />
           </Link>
         </div>
 

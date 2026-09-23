@@ -5,6 +5,7 @@ import { gsap } from "@/lib/gsap";
 import { services } from "./serviceData";
 import ServiceCard from "./ServiceCard";
 import { SectionHeading, AnimatedBlob } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 
 export default function Services() {
   const headingRef = useRef<HTMLDivElement>(null);
@@ -60,7 +61,7 @@ export default function Services() {
             href="#Contact"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-on-primary font-bold font-headline text-sm rounded-xl glow-primary hover:scale-105 transition-all"
           >
-            <span className="material-symbols-outlined text-[18px]">send</span>
+            <AppIcon name="send" className="text-[18px]" />
             Get in Touch
           </a>
         </div>

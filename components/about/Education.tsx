@@ -1,13 +1,14 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import { education } from "./aboutData";
 
 export default function EducationSection() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-5">
-        <span className="material-symbols-outlined text-secondary text-[18px]">school</span>
+        <AppIcon name="school" className="text-secondary text-[18px]" />
         <h3 className="text-xs font-bold font-label uppercase tracking-widest text-secondary">
           Education
         </h3>

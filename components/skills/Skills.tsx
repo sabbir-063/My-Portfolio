@@ -6,6 +6,7 @@ import { featuredSkills, skillGroups } from "./skillData";
 import SkillRadial from "./SkillRadial";
 import SkillBar from "./SkillBar";
 import { SectionHeading, GlassCard, AnimatedBlob } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 
 const accentMap = ["text-primary", "text-secondary", "text-tertiary"];
 
@@ -71,9 +72,7 @@ export default function Skills() {
               {/* Group header */}
               <div className="flex items-center gap-2 mb-4">
                 <div className={`w-7 h-7 rounded-lg glass-panel flex items-center justify-center`}>
-                  <span className={`material-symbols-outlined text-[16px] ${accentMap[gi]}`}>
-                    {group.icon}
-                  </span>
+                  <AppIcon name={group.icon} className={`text-[16px] ${accentMap[gi]}`} />
                 </div>
                 <span className={`text-xs font-bold font-label uppercase tracking-wider ${accentMap[gi]}`}>
                   {group.category}

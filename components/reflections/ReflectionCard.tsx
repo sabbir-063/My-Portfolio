@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import AppIcon from "@/components/ui/AppIcon";
 import type { Reflection } from "./reflectionData";
 
 const COLLAPSE_THRESHOLD = 300;
@@ -56,12 +57,10 @@ export default function ReflectionCard({
             className="self-start inline-flex items-center gap-1 mt-1 text-[12px] font-medium font-headline tracking-wide text-secondary/80 hover:text-secondary transition-colors"
           >
             {expanded ? "Show less" : "Continue reading"}
-            <span
-              aria-hidden="true"
-              className="material-symbols-outlined text-[15px] leading-none"
-            >
-              {expanded ? "expand_less" : "expand_more"}
-            </span>
+            <AppIcon
+              name={expanded ? "expand_less" : "expand_more"}
+              className="text-[15px] leading-none"
+            />
           </button>
         )}
       </div>

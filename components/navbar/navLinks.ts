@@ -1,7 +1,9 @@
+import type { AppIconName } from "@/components/ui/AppIcon";
+
 export interface NavLink {
   label: string;
   href: string;   // always "/#SectionId" — absolute to avoid relative-hash bugs
-  icon: string;
+  icon: AppIconName;
   isPage?: boolean;
 }
 

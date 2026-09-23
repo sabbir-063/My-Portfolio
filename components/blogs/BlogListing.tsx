@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import BlogCard from "@/components/blogs/BlogCard";
+import AppIcon from "@/components/ui/AppIcon";
 import { categories, type Category } from "@/lib/blog/categories";
 import type { BlogMeta } from "@/lib/blog";
 
@@ -91,9 +92,10 @@ export default function BlogListing({ posts }: { posts: BlogMeta[] }) {
       <div className="flex flex-col gap-4">
         {/* Search */}
         <div className="relative max-w-md">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant/60 pointer-events-none">
-            search
-          </span>
+          <AppIcon
+            name="search"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant/60 pointer-events-none"
+          />
           <input
             type="text"
             value={rawQuery}
@@ -109,7 +111,7 @@ export default function BlogListing({ posts }: { posts: BlogMeta[] }) {
               aria-label="Clear search"
               className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-on-surface transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">close</span>
+              <AppIcon name="close" className="text-[18px]" />
             </button>
           )}
         </div>
@@ -155,9 +157,7 @@ export default function BlogListing({ posts }: { posts: BlogMeta[] }) {
       {/* Results */}
       {filtered.length === 0 ? (
         <div className="glass-panel rounded-2xl p-16 text-center">
-          <span className="material-symbols-outlined text-5xl text-on-surface-variant/30">
-            search_off
-          </span>
+          <AppIcon name="search_off" className="mx-auto text-5xl text-on-surface-variant/30" />
           <p className="text-on-surface-variant text-sm mt-4 font-body">
             No posts match your search.
           </p>
@@ -172,9 +172,7 @@ export default function BlogListing({ posts }: { posts: BlogMeta[] }) {
 
           {hasMore && (
             <div ref={sentinelRef} className="flex justify-center py-6">
-              <span className="material-symbols-outlined animate-spin text-on-surface-variant/40 text-2xl">
-                progress_activity
-              </span>
+              <AppIcon name="progress_activity" className="animate-spin text-on-surface-variant/40 text-2xl" />
             </div>
           )}
         </>

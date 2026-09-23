@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal, TagPill } from "@/components/ui";
+import AppIcon from "@/components/ui/AppIcon";
 import { categories } from "@/lib/blog/categories";
 import type { BlogMeta } from "@/lib/blog";
 
@@ -67,12 +68,12 @@ export default function BlogCard({
           {/* Meta row — date + computed read time only */}
           <div className="flex items-center gap-3 text-[10px] text-on-surface-variant font-label">
             <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[12px]">calendar_today</span>
+              <AppIcon name="calendar_today" className="text-[12px]" />
               {formatDate(date)}
             </span>
             <span className="w-1 h-1 rounded-full bg-on-surface-variant/30" />
             <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[12px]">schedule</span>
+              <AppIcon name="schedule" className="text-[12px]" />
               {readMinutes} min read
             </span>
           </div>
@@ -85,7 +86,7 @@ export default function BlogCard({
 
           <span className={`inline-flex items-center gap-1.5 text-xs font-bold font-headline ${cat.accent} group-hover:gap-3 transition-all w-fit mt-1`}>
             Read Post
-            <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            <AppIcon name="arrow_forward" className="text-[15px]" />
           </span>
         </div>
       </Link>

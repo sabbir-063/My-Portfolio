@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AppIcon from "@/components/ui/AppIcon";
 
 interface Field {
   id: "name" | "email" | "message";
@@ -84,7 +85,7 @@ export default function ContactForm() {
           className="flex flex-col items-center justify-center gap-4 py-12 text-center"
         >
           <div className="w-14 h-14 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
-            <span className="material-symbols-outlined text-primary text-2xl">check</span>
+            <AppIcon name="check" className="text-primary text-2xl" />
           </div>
           <p className="text-on-surface font-bold font-headline text-lg">Message Sent!</p>
           <p className="text-on-surface-variant text-sm font-body">
@@ -176,7 +177,7 @@ export default function ContactForm() {
                 exit={{ opacity: 0, y: -4 }}
                 className="text-red-400/90 text-xs font-body flex items-center gap-1.5"
               >
-                <span className="material-symbols-outlined text-[14px]">error</span>
+                <AppIcon name="error" className="text-[14px] shrink-0" />
                 {error}
               </motion.p>
             )}
@@ -190,13 +191,13 @@ export default function ContactForm() {
             >
               {loading ? (
                 <>
-                  <span className="material-symbols-outlined text-[18px] animate-spin">progress_activity</span>
+                  <AppIcon name="progress_activity" className="text-[18px] animate-spin" />
                   Sending…
                 </>
               ) : (
                 <>
                   Send Message
-                  <span className="material-symbols-outlined text-[18px]">send</span>
+                  <AppIcon name="send" className="text-[18px]" />
                 </>
               )}
             </button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import AppIcon from "@/components/ui/AppIcon";
 
 interface ThemeToggleProps {
   isDark: boolean;
@@ -23,10 +24,10 @@ export default function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
           animate={{ opacity: 1, rotate: 0, scale: 1 }}
           exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
           transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="material-symbols-outlined text-[18px] leading-none"
+          className="text-[18px] leading-none"
           style={{ color: isDark ? "#c7b9f5" : "#9B8EC7" }}
         >
-          {isDark ? "dark_mode" : "light_mode"}
+          <AppIcon name={isDark ? "dark_mode" : "light_mode"} />
         </motion.span>
       </AnimatePresence>
     </motion.button>
