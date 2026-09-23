@@ -14,6 +14,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "monolith",
+    label: "Full Stack / AI",
+    title: "Monolith",
+    description:
+      "A bilingual luxury storefront that turns an ordinary red brick into an immersive product launch, with interactive 3D storytelling, an AI ordering concierge, configurable reservations, analytics, and installable PWA support.",
+    gitUrl: "https://github.com/sabbir-063/monolith",
+    liveUrl: "https://monolith.sabbirmusfique.com.bd/",
+    image: "/projects/monolith.png",
+    accentColor: "text-secondary",
+    tags: ["React", "Three.js", "GSAP", "Groq API", "PWA"],
+    year: "2026",
+    status: "Production",
+  },
+  {
     id: "nextblog",
     label: "Full Stack",
     title: "NextBlog",

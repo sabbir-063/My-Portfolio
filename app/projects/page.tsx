@@ -10,6 +10,7 @@ export const metadata = {
     "React projects",
     "Flutter projects",
     "Full Stack Developer",
+    "Monolith",
     "NextBlog",
     "Bikreta",
     "OneConnect",
