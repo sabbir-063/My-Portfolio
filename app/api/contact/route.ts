@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const DEFAULT_FROM_EMAIL = "Portfolio Contact <contact@sabbirmusfique.com.bd>";
 
 // ── In-memory rate limiter ────────────────────────────────────────────────────
 // Tracks submission timestamps per IP. Resets on cold start (fine for portfolio).
@@ -33,6 +33,20 @@ function validate(name: string, email: string, message: string): string | null {
   if (URL_PATTERN.test(name)) return "Name contains invalid content.";
   if (URL_PATTERN.test(message)) return "Message contains invalid content.";
   return null;
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(
+    /[&<>'"]/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;",
+      })[character]!
+  );
 }
 
 // ── Handler ───────────────────────────────────────────────────────────────────
@@ -79,28 +93,53 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: validationError }, { status: 422 });
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+  const contactEmail = process.env.CONTACT_EMAIL;
+
+  if (!apiKey || !contactEmail) {
+    console.error("Contact email is not configured: RESEND_API_KEY or CONTACT_EMAIL is missing.");
+    return NextResponse.json(
+      { error: "Email service is temporarily unavailable. Please try again later." },
+      { status: 503 }
+    );
+  }
+
+  const safeName = escapeHtml(String(name));
+  const safeEmail = escapeHtml(String(email));
+  const safeMessage = escapeHtml(String(message));
+  const resend = new Resend(apiKey);
+
   try {
-    await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL!,
-      replyTo: email,
-      subject: `New message from ${name}`,
+    const { data, error } = await resend.emails.send({
+      from: process.env.CONTACT_FROM_EMAIL ?? DEFAULT_FROM_EMAIL,
+      to: contactEmail,
+      replyTo: String(email),
+      subject: `New message from ${String(name)}`,
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:auto;padding:32px;background:#0f0c1c;color:#ece5fc;border-radius:16px">
           <h2 style="margin:0 0 8px;color:#c7b9f5">New Contact Form Submission</h2>
           <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:16px 0"/>
           <p style="margin:0 0 4px;font-size:12px;color:#aea8be;text-transform:uppercase;letter-spacing:0.08em">From</p>
-          <p style="margin:0 0 20px;font-weight:600">${name} &lt;${email}&gt;</p>
+          <p style="margin:0 0 20px;font-weight:600">${safeName} &lt;${safeEmail}&gt;</p>
           <p style="margin:0 0 4px;font-size:12px;color:#aea8be;text-transform:uppercase;letter-spacing:0.08em">Message</p>
-          <p style="margin:0;white-space:pre-wrap;line-height:1.7">${message}</p>
+          <p style="margin:0;white-space:pre-wrap;line-height:1.7">${safeMessage}</p>
           <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:24px 0"/>
           <p style="margin:0;font-size:11px;color:#aea8be">Sent from your portfolio contact form · Reply-To is set to the sender's email</p>
         </div>
       `,
     });
 
-    return NextResponse.json({ ok: true });
-  } catch {
+    if (error || !data?.id) {
+      console.error("Resend rejected contact email:", error);
+      return NextResponse.json(
+        { error: "The email service rejected this message. Please try again later." },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ ok: true, id: data.id });
+  } catch (error) {
+    console.error("Unexpected contact email failure:", error);
     return NextResponse.json(
       { error: "Failed to send email. Please try again." },
       { status: 500 }
